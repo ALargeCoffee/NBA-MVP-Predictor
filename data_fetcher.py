@@ -1,5 +1,6 @@
 import pandas as pd
 
+# Fetches and cleans data
 def fetch_data():
 
     # Read the file and select appropriate columns by index
