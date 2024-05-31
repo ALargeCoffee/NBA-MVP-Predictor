@@ -11,5 +11,8 @@ def fetch_data():
     # Clean dupes and invalid entries from each season
     is_duped = trimmed_data.duplicated(['Player', 'Season'])
     no_dupes = trimmed_data[~is_duped]
-    cleaned_data = no_dupes.dropna()
+    cleaned_data = no_dupes.dropna().reset_index(drop=True)
+
+    # Convert MVP column from boolean to int
+    cleaned_data['MVP'] = cleaned_data['MVP'].astype(int)
     return cleaned_data
